@@ -29,6 +29,6 @@ export default new Router({
       name: "show",
       component: Show,
       props: true
-    }
+    },
   ]
 });

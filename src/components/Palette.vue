@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     handleWidth() {
-      let newWidth = this.$refs.widthSlider.getValue();
+      const newWidth = this.$refs.widthSlider.getValue();
       this.currentWidth = newWidth;
       this.$emit("widthUpdate", newWidth);
     },
@@ -92,10 +92,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-/* .size-container {
-  width: 80%;
-  display: inline-block;
-} */
 
 .width-circle {
   box-shadow: 1px 5px 5px black;
@@ -108,7 +104,4 @@ export default {
   transition: 0.3s;
 }
 
-/* .slider{
-  
-} */
 </style>

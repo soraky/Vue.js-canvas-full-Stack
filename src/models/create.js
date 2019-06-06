@@ -3,12 +3,38 @@ import DrawingsAPI from "@/drawingsapi";
 
 export default class CreateModel {
   drawings;
+  drawing;
+  modelApi;
 
-  async init() {
+  constructor(modelApi) {
+    this.modelApi = modelApi;
   }
 
-  handleSave(drawing) {
-    DrawingsAPI.addDrawing(drawing);
+  async init(urlParams) {
+    if (urlParams.drawing == undefined) {
+      this.drawing = [];
+    }
+    else {
+      this.drawing = urlParams.drawing;
+    }
+  }
+
+  async handleSave(drawing) {
+    if (drawing.content.length == 0) {
+      alert("The drawing is empty!")
+    }
+    else {
+      DrawingsAPI.addDrawing(drawing);
+      // const id = DrawingsAPI.addDrawing(drawing);
+      // drawing.id = id;
+      // this.modelApi.setTab(
+      //   {
+      //     path: "show",
+      //     params: { id: drawing.id }
+      //   },
+      //   `show/${drawing.id}`
+      // );
+    }
   }
 }
 

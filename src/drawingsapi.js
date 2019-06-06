@@ -6,9 +6,9 @@ export default {
   },
 
   async getDataById(id) {
-      const res = await fetch(`http://localhost:3000/api/drawings/${id}`);
-      const data = await res.json();
-      return data;
+    const res = await fetch(`http://localhost:3000/api/drawings/${id}`);
+    const data = await res.json();
+    return data;
   },
 
   async addDrawing(drawing) {
@@ -16,6 +16,6 @@ export default {
       method: "POST",
       body: JSON.stringify(drawing),
       headers: { "Content-Type": "application/json" }
-    });
+    }).then((drawing => {return drawing}));
   }
 };

@@ -14,7 +14,7 @@ import AppModel from "@/models";
 import { observer } from "mobx-vue";
 import { setTimeout } from "timers";
 
-const indexToRouteName = ["home", "create", "show"];
+const indexToRouteName = ["home", "create", "show", "my"];
 
 export default observer({
   data() {

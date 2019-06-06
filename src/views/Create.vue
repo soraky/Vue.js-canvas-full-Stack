@@ -12,6 +12,7 @@
         v-bind:currentColor.sync="color"
         v-bind:currentWidth.sync="width"
         @timerStopped="onTimerStopped"
+        v-bind:strokes="model.drawing.content"
       />
       <Palette
         class="palette"
@@ -70,7 +71,6 @@ export default {
   data() {
     return {
       valid: true,
-      // strokes: [],
       colors: Colors.data.colors,
       color: this.chosenColor,
       width: this.chosenWidth,
@@ -125,7 +125,6 @@ export default {
         };
 
         this.model.handleSave(drawing);
-        alert("'" + drawing.name + "'" + " was saved successfully!");
       }
     },
     onClearCanvas() {

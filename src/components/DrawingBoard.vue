@@ -4,22 +4,16 @@
     v-on:mousedown="handleMouseDown"
     v-on:mouseup="handleMouseUp"
     v-on:mousemove="handleMouseMove"
+    v-on:mouseleave="handleMouseLeave"
     width="800px"
     height="800px"
   >
-    <!-- <div ref="cursor" id="cursor" class="cursor"/>
-    <DrawingBoardCursor v-bind:readonly="this.readonly" v-bind:coordinates="this.mouse.current"/>-->
   </canvas>
 </template>
 
 <script>
-// import DrawingBoardCursor from "@/components/DrawingBoardCursor.vue";
-
 export default {
   name: "DrawingBoard",
-  components: {
-    // DrawingBoardCursor
-  },
   data: function() {
     return {
       mouse: {
@@ -176,6 +170,9 @@ export default {
         this.$emit("update:strokes", newStrokes);
         this.draw();
       }
+    },
+    handleMouseLeave: function() {
+      this.mouse.down = false;
     }
   }
 };
@@ -191,5 +188,4 @@ canvas {
   height: auto;
   /* cursor: none; */
 }
-
 </style>
