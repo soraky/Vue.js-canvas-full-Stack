@@ -56,12 +56,9 @@ export default {
     timeOfDrawing: Number
   },
   watch: {
-    strokes: {
-      handler: () => {
-        this.draw();
-      },
-      deep: true
-    },
+    strokes() {
+      this.draw();
+    }
   },
   mounted: function() {
     // var c = this.$refs.canvas;
@@ -114,24 +111,10 @@ export default {
 
         ctx.strokeStyle = draw.color;
         ctx.lineWidth = draw.width;
-        // setTimeout(() => {
-        //   ctx.stroke();
-        // }, 1000);
 
-        // this.sleep(1000).then(() => {
-        //   ctx.stroke();
-        // });
-        // let a = 1;
-        // if(a = 0)
-        // {
-        // setTimeout(() => ctx.stroke(), 1000);
-        // }
         ctx.stroke();
       });
     },
-    // sleep(delay) {
-    //   return new Promise(resolve => setTimeout(resolve, delay));
-    // },
     myTimer() {
       this.timeToDraw += 1;
     },
@@ -208,32 +191,5 @@ canvas {
   height: auto;
   /* cursor: none; */
 }
-/* canvas + cursor {
-  position: fixed;    
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 100px solid rgb(0, 0, 150);
-}
 
-cursor {
-  position: fixed;    
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 100px solid rgb(0, 0, 150);
-}
-.cursor {
-  position: fixed;    
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 100px solid rgb(0, 0, 150);
-} */
 </style>

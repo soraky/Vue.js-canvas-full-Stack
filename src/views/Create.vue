@@ -64,15 +64,9 @@ export default {
     // chosenColor: String,
     // chosenWidth: Number,
     // timeToDraw: Number,
+    model: Object,
     drawings: Object
   },
-  // computed: {
-  //   form() {
-  //     return {
-  //       name: this.drawingName
-  //     };
-  //   }
-  // },
   data() {
     return {
       valid: true,
@@ -87,7 +81,8 @@ export default {
         required: value => !!value || "Required.",
         min: v => v.length >= 3 || "Min 3 characters",
         max: v => v.length <= 20 || "Max 20 characters"
-      }
+      },
+      observerModel: this.model
     };
   },
   mounted() {
@@ -129,7 +124,7 @@ export default {
           content: this.$refs.drawingBoard.drawingStrokes
         };
 
-        this.drawings.addDrawing(drawing);
+        this.model.handleSave(drawing);
         alert("'" + drawing.name + "'" + " was saved successfully!");
       }
     },

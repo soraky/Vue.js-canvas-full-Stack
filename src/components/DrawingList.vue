@@ -1,7 +1,8 @@
 <template>
   <div class="drawing-list">
     <div class="drawings-container">
-      <DrawingThumb class="thumbnails"
+      <DrawingThumb
+        class="thumbnails"
         v-for="(item, index) in drawings"
         v-bind:key="item.id"
         v-bind:draw="drawings[index]"
@@ -22,7 +23,7 @@ export default {
   },
   props: {
     drawings: Array,
-    onThumbClick: Function,
+    onThumbClick: Function
   }
 };
 </script>

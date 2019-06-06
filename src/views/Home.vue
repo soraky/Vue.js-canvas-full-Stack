@@ -1,6 +1,10 @@
 <template>
   <div class="home">
-    <DrawingList class="drawings" v-bind:drawings="model.drawings" @onThumbClick="handleThumbClick"/>
+    <DrawingList
+      class="drawings"
+      v-bind:drawings="model.drawings"
+      @onThumbClick="handleThumbClick"
+    />
   </div>
 </template>
 
@@ -14,7 +18,7 @@ export default {
     DrawingList
   },
   props: {
-    model: Object,
+    model: Object
   },
   methods: {
     handleThumbClick(id) {

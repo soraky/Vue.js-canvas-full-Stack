@@ -1,5 +1,4 @@
 import { action, decorate, observable } from "mobx";
-import DrawingsAPI from "@/drawingsapi";
 import HomeModel from "./home";
 import CreateModel from "./create";
 import ShowModel from "./show";
@@ -67,6 +66,4 @@ decorate(AppModel, {
   setReady: action,
   currentTab: observable,
   ready: observable,
-  currentModel: observable,
-  setCurrentModel: action
 });

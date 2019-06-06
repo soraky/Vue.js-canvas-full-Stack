@@ -76,7 +76,7 @@ export default {
     onColorChanged(color) {
       this.currentColor = color;
       this.$emit("colorUpdate", color);
-    },
+    }
     // onDragStart() {
     //   this.handleWidth();
     // },
