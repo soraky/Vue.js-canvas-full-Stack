@@ -1,4 +1,4 @@
-import { action, decorate, observable } from "mobx";
+import { decorate, observable } from "mobx";
 import DrawingsAPI from "@/drawingsapi";
 
 export default class CreateModel {
@@ -25,15 +25,15 @@ export default class CreateModel {
     }
     else {
       DrawingsAPI.addDrawing(drawing);
-      // const id = DrawingsAPI.addDrawing(drawing);
-      // drawing.id = id;
-      // this.modelApi.setTab(
-      //   {
-      //     path: "show",
-      //     params: { id: drawing.id }
-      //   },
-      //   `show/${drawing.id}`
-      // );
+      const id = DrawingsAPI.addDrawing(drawing);
+      drawing.id = id;
+      this.modelApi.setTab(
+        { 
+          path: "show",
+          params: { id: 4 }
+        },
+        `show/${"4"}`
+      );
     }
   }
 }

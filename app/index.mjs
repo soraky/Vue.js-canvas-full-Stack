@@ -1,8 +1,12 @@
 import express from 'express';
 import cors from 'cors';
 import uuid from 'uuid/v4.js';
+import bodyParser from 'body-parser';
 
 const app = express();
+
+app.use(bodyParser.json({limit: "50mb"}));
+app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
 app.use(cors());
 app.use(express.json());
 
@@ -13,7 +17,7 @@ const data = {
             name: 'abc',
             creator: 'Admin',
             private: false,
-            date: '18.4.18',
+            date: '18/4/18',
             time: 59,
             content: [
                 {
@@ -26,7 +30,7 @@ const data = {
                         { x: 702, y: 166 },
                     ],
                 },
-                    {
+                {
                     width: 5,
                     color: '#00ff00',
                     coordinates: [
@@ -42,7 +46,7 @@ const data = {
             name: '123',
             creator: 'Admin',
             private: false,
-            date: '20.5.19',
+            date: '20/5/19',
             time: 100,
             content: [
                 {
@@ -55,7 +59,7 @@ const data = {
                         { x: 12, y: 166 },
                     ],
                 },
-                    {
+                {
                     width: 20,
                     color: '#ffaaff',
                     coordinates: [
@@ -81,7 +85,7 @@ const data = {
             name: 'No longer a private drawing',
             creator: 'Admin',
             private: false,
-            date: '25.5.19',
+            date: '25/5/19',
             time: 600,
             content: [
                 {
@@ -93,10 +97,10 @@ const data = {
                         { x: 12, y: 15 },
                         { x: 702, y: 166 },
                         { x: 100, y: 200 },
-                        { x: 800, y: 500 },                                
+                        { x: 800, y: 500 },
                     ],
                 },
-                    {
+                {
                     width: 50,
                     color: '#00ffff',
                     coordinates: [
@@ -112,7 +116,7 @@ const data = {
             name: 'Not private',
             creator: 'Admin',
             private: false,
-            date: '29.5.19',
+            date: '29/5/19',
             time: 61,
             content: [
                 {
@@ -123,7 +127,7 @@ const data = {
                         { x: 800, y: 800 },
                     ],
                 },
-                    {
+                {
                     width: 20,
                     color: '#aabbcc',
                     coordinates: [
@@ -141,9 +145,11 @@ const data = {
                     ],
                 },
             ]
-        },                
+        },
     ]
 };
+
+app.listen(3000);
 
 app.get('/api/drawings', (req, res) => {
     res.json(data.draws);
@@ -151,7 +157,6 @@ app.get('/api/drawings', (req, res) => {
 
 app.get('/api/drawings/:id', (req, res) => {
     const id = req.params.id;
-    // console.log(id);
     const drawings = data.draws;
     const currentDrawing = drawings.find(drawing => drawing.id === id);
     res.json(currentDrawing);
@@ -167,5 +172,3 @@ app.post('/api/drawings', (req, res) => {
 // app.get('/', (req, res) => {
 //     res.returnFILE('./BUILD/INDEX.HTML')
 // })
-
-app.listen(3000);

@@ -74,6 +74,7 @@ export default class ShowModel {
     this.speed = speed;
   }
   handleEdit() {
+    this.handlePause();
     this.modelApi.setTab(
       {
         path: "create",

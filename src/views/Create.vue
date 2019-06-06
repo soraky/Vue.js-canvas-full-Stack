@@ -103,15 +103,23 @@ export default {
           (today.getMonth() + 1) +
           "/" +
           today.getFullYear();
-        const time =
-          today.getHours() +
-          ":" +
-          today.getMinutes() +
-          ":" +
-          today.getSeconds();
+
+        let minutes = today.getMinutes();
+
+        if (minutes < 10) {
+          minutes = "0" + minutes;
+        }
+
+        let seconds = today.getSeconds();
+
+        if (seconds < 10) {
+          seconds = "0" + seconds;
+        }
+
+        const time = today.getHours() + ":" + minutes + ":" + seconds;
         const dateTime = date + " " + time;
 
-        const creator = "Admin";
+        const creator = "Default";
 
         const drawing = {
           // id: creator + "," + this.drawingName + "," + date + "," + time,

@@ -9,7 +9,6 @@
         v-bind:strokes="model.drawing.content"
         v-bind:readonly="true"
       />
-      {{this.model.drawing.content.length}}
       <v-btn flat icon>
         <v-icon @click="onRedraw">replay</v-icon>
       </v-btn>
@@ -22,6 +21,7 @@
       <v-btn flat icon>
         <v-icon @click="onEdit">edit</v-icon>
       </v-btn>
+      This drawing consists of {{this.model.drawing.content.length}} strokes.
     </v-flex>
     <v-flex sm3 offset-sm3>
       Redrawing speed:

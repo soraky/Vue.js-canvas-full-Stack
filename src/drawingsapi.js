@@ -16,6 +16,7 @@ export default {
       method: "POST",
       body: JSON.stringify(drawing),
       headers: { "Content-Type": "application/json" }
-    }).then((drawing => {return drawing}));
+    });
+    // .then((drawing => {return drawing}))
   }
 };
