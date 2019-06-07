@@ -12,11 +12,12 @@ export default {
   },
 
   async addDrawing(drawing) {
-    await fetch("http://localhost:3000/api/drawings", {
+    const res = await fetch("http://localhost:3000/api/drawings", {
       method: "POST",
       body: JSON.stringify(drawing),
       headers: { "Content-Type": "application/json" }
     });
-    // .then((drawing => {return drawing}))
+    const id = res.text();
+    return id;
   }
 };

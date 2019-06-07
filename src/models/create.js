@@ -24,15 +24,14 @@ export default class CreateModel {
       alert("The drawing is empty!")
     }
     else {
-      DrawingsAPI.addDrawing(drawing);
-      const id = DrawingsAPI.addDrawing(drawing);
+      const id = await DrawingsAPI.addDrawing(drawing);
       drawing.id = id;
       this.modelApi.setTab(
         { 
           path: "show",
-          params: { id: 4 }
+          params: { id: id }
         },
-        `show/${"4"}`
+        `show/${id}`
       );
     }
   }
