@@ -1,9 +1,6 @@
-import { decorate, observable } from 'mobx';
 import DrawingsAPI from 'src/drawingsapi';
 
 export default class CreateModel {
-  drawings;
-
   drawing;
 
   modelApi;
@@ -36,7 +33,3 @@ export default class CreateModel {
     }
   }
 }
-
-decorate(CreateModel, {
-  drawings: observable,
-});

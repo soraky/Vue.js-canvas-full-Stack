@@ -1,8 +1,9 @@
-import { decorate, observable } from 'mobx';
+import { observable } from 'mobx';
 import DrawingsAPI from 'src/drawingsapi';
 import sleep from 'src/common/sleep';
 
 export default class ShowModel {
+  @observable.ref
   drawing;
 
   originalDrawing;
@@ -91,7 +92,3 @@ export default class ShowModel {
     );
   }
 }
-
-decorate(ShowModel, {
-  drawing: observable,
-});
